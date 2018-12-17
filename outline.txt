@@ -1,0 +1,232 @@
+declared springCloudBus anonymous queue:
+----------------------------------------
+2018-12-17 08:37:45.633 DEBUG 13983 --- [           main] o.s.amqp.rabbit.core.RabbitAdmin         : declaring Queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ'
+
+consumer of springCloudBus anonymous queue:
+-------------------------------------------
+2018-12-17 08:37:45.881 DEBUG 13983 --- [pool-2-thread-7] o.s.a.r.listener.BlockingQueueConsumer   : ConsumeOK: Consumer@503556cb: tags=[{amq.ctag-s-IYhxP4bXEjrglFIuQr-w=springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ}], channel=Cached Rabbit Channel: AMQChannel(amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification,1), conn: Proxy@71b0289b Shared Rabbit Connection: SimpleConnection@6f2d3391 [delegate=amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification, localPort= 52315], acknowledgeMode=AUTO local queue size=0
+
+
+network connection severed:
+---------------------------
+2018-12-17 08:40:23.254 DEBUG 13983 --- [rmx6DqbNo1uPQ-1] o.s.a.r.listener.BlockingQueueConsumer   : Retrieving delivery for Consumer@503556cb: tags=[{amq.ctag-s-IYhxP4bXEjrglFIuQr-w=springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ}], channel=Cached Rabbit Channel: AMQChannel(amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification,1), conn: Proxy@71b0289b Shared Rabbit Connection: SimpleConnection@6f2d3391 [delegate=amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification, localPort= 52315], acknowledgeMode=AUTO local queue size=0
+2018-12-17 08:40:23.687 DEBUG 13983 --- [.input.sample-1] o.s.a.r.listener.BlockingQueueConsumer   : Retrieving delivery for Consumer@a03529c: tags=[{amq.ctag-3ZNc-38WQH4RfRA6fCmurQ=test.input.sample}], channel=Cached Rabbit Channel: AMQChannel(amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification,2), conn: Proxy@71b0289b Shared Rabbit Connection: SimpleConnection@6f2d3391 [delegate=amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification, localPort= 52315], acknowledgeMode=AUTO local queue size=0
+2018-12-17 08:40:23.724 ERROR 13983 --- [.<my.rabbit.ip>:<my.rabbit.port>] c.r.c.impl.ForgivingExceptionHandler     : An unexpected connection driver error occured
+
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_162]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_162]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[na:1.8.0_162]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_162]
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465) ~[na:1.8.0_162]
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503) ~[na:1.8.0_162]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:983) ~[na:1.8.0_162]
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:940) ~[na:1.8.0_162]
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105) ~[na:1.8.0_162]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[na:1.8.0_162]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[na:1.8.0_162]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[na:1.8.0_162]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:164) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:602) ~[amqp-client-4.8.3.jar:4.8.3]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_162]
+
+
+network connection restored:
+----------------------------
+2018-12-17 08:41:59.535  INFO 13983 --- [input.sample-12] o.s.a.r.l.SimpleMessageListenerContainer : Restarting Consumer@7ca9d55c: tags=[{}], channel=null, acknowledgeMode=AUTO local queue size=0
+2018-12-17 08:41:59.535 DEBUG 13983 --- [input.sample-12] o.s.a.r.listener.BlockingQueueConsumer   : Closing Rabbit Channel: null
+2018-12-17 08:41:59.535 DEBUG 13983 --- [input.sample-13] o.s.a.r.listener.BlockingQueueConsumer   : Starting consumer Consumer@7f088f6f: tags=[{}], channel=null, acknowledgeMode=AUTO local queue size=0
+2018-12-17 08:41:59.864  INFO 13983 --- [mx6DqbNo1uPQ-13] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#3db1ce78:23/SimpleConnection@39241539 [delegate=amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification, localPort= 52463]
+2018-12-17 08:41:59.865 DEBUG 13983 --- [mx6DqbNo1uPQ-13] o.s.amqp.rabbit.core.RabbitAdmin         : Initializing declarations
+2018-12-17 08:41:59.867 DEBUG 13983 --- [mx6DqbNo1uPQ-13] o.s.amqp.rabbit.core.RabbitAdmin         : Nothing to declare
+2018-12-17 08:41:59.867 DEBUG 13983 --- [mx6DqbNo1uPQ-13] o.s.amqp.rabbit.core.RabbitAdmin         : Initializing declarations
+2018-12-17 08:41:59.868  INFO 13983 --- [mx6DqbNo1uPQ-13] o.s.amqp.rabbit.core.RabbitAdmin         : Auto-declaring a non-durable, auto-delete, or exclusive Queue (springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ) durable:false, auto-delete:true, exclusive:true. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+
+
+
+consumer exception on trying to read from springCloudBus anonymous queue:
+-------------------------------------------------------------------------
+
+2018-12-17 08:42:17.748 DEBUG 13983 --- [mx6DqbNo1uPQ-13] o.s.a.r.l.SimpleMessageListenerContainer : Consumer raised exception, processing can restart if the connection factory supports it
+
+org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:71) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.connection.RabbitAccessor.convertRabbitAccessException(RabbitAccessor.java:113) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:1469) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:1419) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:1395) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.initialize(RabbitAdmin.java:579) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin$11$1.doWithRetry(RabbitAdmin.java:486) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:287) ~[spring-retry-1.2.2.RELEASE.jar:na]
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:164) ~[spring-retry-1.2.2.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin$11.onCreate(RabbitAdmin.java:481) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.connection.CompositeConnectionListener.onCreate(CompositeConnectionListener.java:33) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:594) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils$1.createConnection(ConnectionFactoryUtils.java:90) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.doGetTransactionalResourceHolder(ConnectionFactoryUtils.java:140) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.getTransactionalResourceHolder(ConnectionFactoryUtils.java:76) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:576) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1504) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_162]
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:124) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:120) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:142) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclare(ChannelN.java:958) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclare(ChannelN.java:53) ~[amqp-client-4.8.3.jar:4.8.3]
+	at sun.reflect.GeneratedMethodAccessor157.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_162]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_162]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1029) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at com.sun.proxy.$Proxy113.queueDeclare(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.declareQueues(RabbitAdmin.java:655) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.access$200(RabbitAdmin.java:72) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin$12.doInRabbit(RabbitAdmin.java:584) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:1463) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	... 15 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=405, reply-text=RESOURCE_LOCKED - cannot obtain exclusive access to locked queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:443) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:263) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:136) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 26 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=405, reply-text=RESOURCE_LOCKED - cannot obtain exclusive access to locked queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:515) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:340) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:162) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:109) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:676) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:48) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:603) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 1 common frames omitted
+
+
+
+
+
+last "RESOURCE_LOCKED" exception
+--------------------------------
+2018-12-17 08:42:43.793  WARN 13983 --- [mx6DqbNo1uPQ-15] o.s.a.r.listener.BlockingQueueConsumer   : Queue declaration failed; retries left=2
+
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:706) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:596) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1504) [spring-rabbit-1.7.11.RELEASE.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_162]
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:124) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:120) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:142) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1002) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:53) ~[amqp-client-4.8.3.jar:4.8.3]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_162]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_162]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_162]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_162]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1029) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at com.sun.proxy.$Proxy113.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:685) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	... 3 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=405, reply-text=RESOURCE_LOCKED - cannot obtain exclusive access to locked queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:443) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:263) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:136) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 12 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=405, reply-text=RESOURCE_LOCKED - cannot obtain exclusive access to locked queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:515) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:340) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:162) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:109) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:676) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:48) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:603) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 1 common frames omitted
+
+
+
+recurring error:
+----------------
+2018-12-17 08:42:49.781 DEBUG 13983 --- [mx6DqbNo1uPQ-15] o.s.a.r.c.CachingConnectionFactory       : Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://<my.rabbit.user>@<my.rabbit.ip>:<my.rabbit.port>/notification,3)
+2018-12-17 08:42:49.800  WARN 13983 --- [mx6DqbNo1uPQ-15] o.s.a.r.listener.BlockingQueueConsumer   : Failed to declare queue: springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ
+2018-12-17 08:42:49.801  WARN 13983 --- [mx6DqbNo1uPQ-15] o.s.a.r.listener.BlockingQueueConsumer   : Queue declaration failed; retries left=1
+
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:706) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:596) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1504) [spring-rabbit-1.7.11.RELEASE.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_162]
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:124) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:120) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:142) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1002) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:53) ~[amqp-client-4.8.3.jar:4.8.3]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_162]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_162]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_162]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_162]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1029) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at com.sun.proxy.$Proxy113.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:685) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	... 3 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:443) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:263) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:136) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 12 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:515) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:340) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:162) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:109) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:676) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:48) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:603) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 1 common frames omitted
+
+
+2018-12-17 08:44:04.527 ERROR 13983 --- [mx6DqbNo1uPQ-18] o.s.a.r.l.SimpleMessageListenerContainer : Consumer received fatal=false exception on startup
+
+org.springframework.amqp.rabbit.listener.QueuesNotAvailableException: Cannot prepare queue for listener. Either the queue doesn't exist or the broker will not allow us to use it.
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:628) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1504) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_162]
+Caused by: org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:706) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:596) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	... 2 common frames omitted
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:124) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:120) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:142) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1002) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:53) ~[amqp-client-4.8.3.jar:4.8.3]
+	at sun.reflect.GeneratedMethodAccessor161.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_162]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_162]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1029) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	at com.sun.proxy.$Proxy113.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:685) ~[spring-rabbit-1.7.11.RELEASE.jar:na]
+	... 3 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:443) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:263) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:136) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 11 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'springCloudBus.anonymous.p6jqufA8Trmx6DqbNo1uPQ' in vhost 'notification', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:515) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:340) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:162) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:109) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:676) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:48) ~[amqp-client-4.8.3.jar:4.8.3]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:603) ~[amqp-client-4.8.3.jar:4.8.3]
+	... 1 common frames omitted

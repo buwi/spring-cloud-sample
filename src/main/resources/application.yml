@@ -1,0 +1,84 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.stream.test.binder.TestSupportBinderAutoConfiguration
+  cloud:
+    bus:
+      enabled: true
+    config:
+      override-system-properties: false
+    stream:
+      default-binder: rabbit
+      binders:
+        rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: <my.rabbit.host>
+                port: <my.rabbit.port>
+                username: <my.rabbit.user>
+                password: <my.rabbit.password>
+                virtual-host: notification
+                ssl:
+                  enabled: true
+                  algorithm: TLSv1.2
+      bindings:
+        input:
+          destination: test.input
+          group: sample
+          consumer:
+            back-off-initial-interval: 1000
+            back-off-max-interval: 2000
+            back-off-multiplier: 2
+            max-attempts: 2
+            concurrency: 1
+        output:
+          destination: test.output
+          producer:
+            use-native-encoding: true
+            required-groups:
+              - sample
+        test:
+          destination: test.input
+          binder: rabbit
+          producer:
+            use-native-encoding: true
+            required-groups:
+              - sample
+      rabbit:
+        bindings:
+          springCloudBusInput:
+            consumer:
+              durableSubscription: false
+          input:
+            consumer:
+              durable-subscription: true
+              transacted: true
+              prefetch: 1
+              auto-bind-dlq: true
+              dlq-dead-letter-exchange: 
+              dlq-ttl: 5000
+              requeue-rejected: false
+          output:
+            producer:
+              auto-bind-dlq: true
+              dlq-dead-letter-exchange:
+              dlq-ttl: 5000
+          test:
+            producer:
+              routing-key-epression: headers.routingKey
+              binding-routing-key: test
+              auto-bind-dlq: true
+              dlq-dead-letter-exchange:
+              dlq-ttl: 5000
+management:
+  security:
+    enabled: false
+logging:
+  level:
+    org.springframework.amqp: DEBUG
+    org.springframework.integration: DEBUG
+    org.springframework.cloud: DEBUG
+
+ 
